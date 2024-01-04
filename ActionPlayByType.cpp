@@ -12,6 +12,9 @@ ActionPlayByType::ActionPlayByType(ApplicationManager* pApp) :Action(pApp)
 
 void ActionPlayByType::Execute()
 {
+	for (int i = 0; i < pManager->getFigCount(); i++)
+		pManager->DrawnFigs(i)->ShowW();
+	pManager->UpdateInterface();
 	GUI* pGUI = pManager->GetGUI();
 	if (pManager->numberOfShapes() > 0) {
 		string type = pManager->getRandomExistingType();
@@ -34,15 +37,15 @@ void ActionPlayByType::Execute()
 
 				//delete figure on 
 				fig->Hide();
-				pManager->UpdateInterface();
-
 			}
 			else {
 				wrong++;
 				fig->Hide();
 			}
+			pGUI->ClearDrawArea();
+			pManager->UpdateInterface();
 			pGUI->PrintMessage("Correct: " + to_string(correct) + " || Wrong:" + to_string(wrong));
-			if (numberOfShapesOfType == 0) {
+			if (numberOfShapesOfType == 0 || (correct + wrong) == pManager->getFigCount()) {
 				pGUI->PrintMessage("You Won ^_^ " + to_string(correct) + " / " + to_string(wrong));
 			}
 		}
@@ -50,7 +53,4 @@ void ActionPlayByType::Execute()
 	else {
 		pGUI->PrintMessage("There is no shapes");
 	}
-	for (int i = 0; i < pManager->getFigCount(); i++)
-		pManager->DrawnFigs(i)->ShowW();
-	pManager->UpdateInterface();
 }

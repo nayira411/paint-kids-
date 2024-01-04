@@ -9,6 +9,9 @@ ActionPlayByFill::ActionPlayByFill(ApplicationManager* pApp) :Action(pApp)
 
 void ActionPlayByFill::Execute()
 {
+	for (int i = 0; i < pManager->getFigCount(); i++)
+		pManager->DrawnFigs(i)->ShowW();
+	pManager->UpdateInterface();
 	GUI* pGUI = pManager->GetGUI();
 	if (pManager->numberOfShapes() > 0) {
 		string color = pManager->getRandomExistingColor();
@@ -31,15 +34,16 @@ void ActionPlayByFill::Execute()
 
 				//delete figure on 
 				fig->Hide();
-				pManager->UpdateInterface();
 
 			}
 			else {
 				wrong++;
 				fig->Hide();
 			}
+			pGUI->ClearDrawArea();
+			pManager->UpdateInterface();
 			pGUI->PrintMessage("Correct: " + to_string(correct) + " || Wrong:" + to_string(wrong));
-			if (numberOfShapesOfColor == 0) {
+			if (numberOfShapesOfColor == 0|| (correct + wrong) == pManager->getFigCount()) {
 				pGUI->PrintMessage("You Won ^_^ " + to_string(correct) + " / " + to_string(wrong));
 			}
 		}
@@ -47,7 +51,4 @@ void ActionPlayByFill::Execute()
 	else {
 		pGUI->PrintMessage("There is no shapes");
 	}
-	for (int i = 0; i < pManager->getFigCount(); i++)
-		pManager->DrawnFigs(i)->ShowW();
-	pManager->UpdateInterface();
 }

@@ -296,8 +296,8 @@ void ApplicationManager::clearInterface()
 void ApplicationManager::UpdateInterface() const
 {
 	for (int i = 0; i < FigCount; i++)
-		if (FigList[i]->HiddenStatus() == true) {
-
+		if (FigList[i]->HiddenStatus()) {
+			continue;
 		}
 		else {
 			FigList[i]->DrawMe(pGUI);

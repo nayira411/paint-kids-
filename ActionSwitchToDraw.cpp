@@ -19,6 +19,10 @@ void ActionSwitchToDraw::Execute()
 		pManager->ExecuteAction(pAct);
 	}
 
+	for (int i = 0; i < pManager->getFigCount(); i++)
+		pManager->DrawnFigs(i)->ShowW();
+	pManager->UpdateInterface();
+
 	pGUI->PrintMessage("Back to Draw mode");
 	UI.InterfaceMode = MODE_DRAW;
 
