@@ -13,9 +13,9 @@ ActionSelect::ActionSelect(ApplicationManager* pApp) :Action(pApp)
 void ActionSelect::Execute()
 {
 	GUI* pGUI = pManager->GetGUI();
-	int x, y;
+	int x, y, index=-1;
 	pGUI->GetPointClicked(x, y);//double click
-	CFigure *figSelected = pManager->GetFigure(x, y);
+	CFigure *figSelected = pManager->GetFigure(x, y, index);
 	if (figSelected != NULL)
 	{
 		if (!(figSelected->IsSelected()))
@@ -26,7 +26,7 @@ void ActionSelect::Execute()
 			figSelected->ChngFillClr(pGUI->getCrntHighlightColor());
 			pManager->UpdateInterface();
 			pGUI->ClearStatusBar();
-			pGUI->PrintMessage(figSelected->GetInfo());
+			pGUI->PrintMessage("ID: " + to_string(index + 1) + " - " + figSelected->GetInfo());
 		}
 		else
 		{

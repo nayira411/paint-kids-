@@ -56,7 +56,17 @@ string CHexagon::GetInfo()
 {
     return "First point: (" + to_string(xCoordinates[0]) + ", " + to_string(yCoordinates[0]) + ")" +
         " - Second point: (" + to_string(xCoordinates[1]) + ", " + to_string(yCoordinates[1]) + ")"
-        + " - vertexes count is: " + to_string(vertexes);
+        + " - vertexes count is: " + to_string(vertexes)
+        + " - Area is : " + to_string(CalcArea());
+}
+
+float CHexagon::CalcArea()
+{
+    float sideLength = std::sqrt(std::pow(xCoordinates[1] - xCoordinates[0], 2) + std::pow(yCoordinates[1] - yCoordinates[0], 2));
+
+    // Calculate the area of a regular hexagon
+    double area = (3.0 * std::sqrt(3.0) / 2.0) * std::pow(sideLength, 2);
+    return area;
 }
 
 //asma save This function writes the details of the ellipse figure to the output file stream (OutFile).

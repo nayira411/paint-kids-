@@ -204,7 +204,7 @@ void ApplicationManager::DeleteFigureAndRearrange(CFigure* pFig, int index)
 	FigCount--;
 }
 ////////////////////////////////////////////////////////////////////////////////////
-CFigure *ApplicationManager::GetFigure(int x, int y) const
+CFigure *ApplicationManager::GetFigure(int x, int y, int &index) const
 {
 	//If a figure is found return a pointer to it.
 	//if this point (x,y) does not belong to any figure return NULL
@@ -214,8 +214,12 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 	//Omar
 	for (int i = FigCount - 1; i >= 0; i--)
 	{
-		if (FigList[i]->IsPointInside(x,y))
+		if (FigList[i]->IsPointInside(x, y))
+		{
+			index = i;
 			return FigList[i];
+		}
+			
 	}
 
 	return NULL;

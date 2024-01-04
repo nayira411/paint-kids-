@@ -281,9 +281,9 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_ELPS] = "images\\MenuItems\\Menu_Elps.jpg";
 	MenuItemImages[ITM_HEX] = "images\\MenuItems\\Menu_HEX.jpg";
 	MenuItemImages[ITM_CHNG_DRAW_CLR] = "images\\MenuItems\\Menu_border.jpg";
-	MenuItemImages[ITM_CHNG_FILL_CLR] = "images\\MenuItems\\fillimg.jpg";
+	MenuItemImages[ITM_CHNG_FIG_CLR] = "images\\MenuItems\\fillimg.jpg";
 	MenuItemImages[ITM_CHNG_BK_CLR] = "images\\MenuItems\\Menu_bg.jpeg";
-	MenuItemImages[ITM_CHNG_FIG_CLR] = "images\\MenuItems\\chgobjclr.jpg";
+	MenuItemImages[ITM_CHNG_FILL_CLR] = "images\\MenuItems\\chgobjclr.jpg";
 	MenuItemImages[ITM_DELETE] = "images\\MenuItems\\delete.jpg";
 	MenuItemImages[ITM_MOVE_BACK] = "images\\MenuItems\\back.jpg";
 	MenuItemImages[ITM_MOVE_FRONT] = "images\\MenuItems\\front.jpg";

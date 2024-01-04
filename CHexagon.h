@@ -18,6 +18,7 @@ public:
 	virtual void DrawMe(GUI* pOut) const;
 	bool IsPointInside(int x, int y);
 	virtual string GetInfo();
+	virtual float CalcArea();
 	//asma
 	virtual void Save(ofstream&);
 	virtual void Load(ifstream&);

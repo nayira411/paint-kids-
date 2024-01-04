@@ -17,6 +17,7 @@ public:
 	//omar
 	bool IsPointInside(int x, int y);
 	virtual string GetInfo();
+	virtual float CalcArea();
 
 	//asma load save
 	virtual void Save(ofstream& OutFile);

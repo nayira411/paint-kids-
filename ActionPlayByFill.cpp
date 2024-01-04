@@ -23,11 +23,12 @@ void ActionPlayByFill::Execute()
 			pGUI->GetPointClicked(x, y);
 			if (pGUI->clickedInsideToolBar(x, y))
 				break;
-			CFigure* fig = pManager->GetFigure(x, y);
+			int index;
+			CFigure* fig = pManager->GetFigure(x, y, index);
 			while (fig == NULL) {
 				pGUI->PrintMessage("No Shape Found, Please Click on shape");
 				pGUI->getPointInsideDrawArea(x, y);
-				fig = pManager->GetFigure(x, y);
+				fig = pManager->GetFigure(x, y, index);
 			}
 
 			if (fig != NULL && pManager->getColorName(fig->getFillColor()) == color) {

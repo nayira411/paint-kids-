@@ -33,7 +33,18 @@ bool CEllipse::IsPointInside(int x, int y)
 string CEllipse::GetInfo()
 {
     return "First point: (" + to_string(pointone.x) + ", " + to_string(pointone.y) + ")" + 
-        " - Second point: (" + to_string(pointtwo.x) + ", " + to_string(pointtwo.y) + ")";
+        " - Second point: (" + to_string(pointtwo.x) + ", " + to_string(pointtwo.y) + ")"
+        + " - Area: " + to_string(CalcArea());
+}
+
+float CEllipse::CalcArea()
+{
+    double semiMajorAxis = std::abs(pointtwo.x - pointone.x) / 2.0;
+    double semiMinorAxis = std::abs(pointtwo.y - pointone.y) / 2.0;
+
+    // Calculate the area of the ellipse
+    double area = (22/7) * semiMajorAxis * semiMinorAxis;
+    return area;
 }
 
 void CEllipse::Save(ofstream& OutFile) {

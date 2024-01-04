@@ -32,7 +32,12 @@ bool CSquare::IsPointInside(int x, int y)
 //omar return the details
 string CSquare::GetInfo()
 {
-	return "First point: (" + to_string(TopLeftCorner.x) + ", " + to_string(TopLeftCorner.y) + ")" + " - side length is: " + to_string(length);
+	return "First point: (" + to_string(TopLeftCorner.x) + ", " + to_string(TopLeftCorner.y) + ")" + " - side length is: " + to_string(length) + " - Area: " + to_string(CalcArea());
+}
+
+float CSquare::CalcArea()
+{
+	return length * length;
 }
 //asma save This function writes the details of the ellipse figure to the output file stream (OutFile).
 void CSquare::Save(ofstream& OutFile) {

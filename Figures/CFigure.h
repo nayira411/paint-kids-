@@ -28,6 +28,7 @@ public:
 	//Omar
 	virtual bool IsPointInside(int x, int y)=0;
 	virtual string GetInfo() = 0;
+	virtual float CalcArea() = 0;
 
 	//Save asma
 	string ColorString(color) const;
