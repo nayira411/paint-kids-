@@ -326,8 +326,8 @@ void GUI::CreatePlayToolBar() const
 	string MenuItemImages[PLAY_ITM_COUNT];
 	//MenuItemImages[ITM_SQUR2] = "images\\MenuItems\\Menu_Sqr.jpg";
 	MenuItemImages[ITM_GAME1] = "images\\MenuItems\\game1.jpg";
-	MenuItemImages[ITM_GAME2] = "images\\MenuItems\\game2.jpg";
-	MenuItemImages[ITM_GAME3] = "images\\MenuItems\\game3.jpg";
+	MenuItemImages[ITM_GAME2] = "images\\MenuItems\\game3.jpg";
+	MenuItemImages[ITM_GAME3] = "images\\MenuItems\\game2.jpg";
 	MenuItemImages[ITM_SWITCH_TO_DRAW_MODE] = "images\\MenuItems\\draw.jpg";
 	//MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 	//TODO: Prepare images for each menu item and add it to the list
