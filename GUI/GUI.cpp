@@ -553,3 +553,8 @@ void GUI::getPointInsideDrawArea(int& x, int& y)
 		GetPointClicked(x, y);
 	}
 }
+
+bool GUI::clickedInsideToolBar(int& x, int& y)
+{
+	return ((y > 0 && y < UI.ToolBarHeight));
+}

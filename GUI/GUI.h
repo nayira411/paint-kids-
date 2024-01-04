@@ -65,6 +65,7 @@ public:
 
 
 	void getPointInsideDrawArea(int& x, int& y); // get point inside draw area
+	bool clickedInsideToolBar(int& x, int& y); //check if the point is inside the toolbar
 
 };
 

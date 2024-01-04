@@ -23,7 +23,9 @@ void ActionPlayByType::Execute()
 
 		while (numberOfShapesOfType > 0) {
 			int x, y;
-			pGUI->getPointInsideDrawArea(x, y);
+			pGUI->GetPointClicked(x, y);
+			if (pGUI->clickedInsideToolBar(x, y))
+				break;
 			CFigure* fig = pManager->GetFigure(x, y);
 			while (fig == NULL) {
 				pGUI->PrintMessage("No Shape Found, Please Click on shape");
