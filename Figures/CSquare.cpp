@@ -78,8 +78,13 @@ void CSquare::Load(ifstream& Infile) {
 	Infile >> squareData;
 
 	//and the fill color
-	FigGfxInfo.FillClr = this->ColorObject(squareData);
-	FigGfxInfo.isFilled = true;
+	if (squareData == "NO_FILL")
+		FigGfxInfo.isFilled = false;
+	else
+	{
+		FigGfxInfo.FillClr = this->ColorObject(squareData);
+		FigGfxInfo.isFilled = true;
+	}
 
 	//show figure
 	this->show();

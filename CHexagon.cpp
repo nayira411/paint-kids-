@@ -99,7 +99,7 @@ void CHexagon::Save(ofstream& OutFile) {
 //This function reads the details of the ellipse figure from the input file stream 
 void CHexagon::Load(ifstream& Infile) {
     string hexagonData;
-
+    
     // It reads the vertexes and points
     Infile >> vertexes;
     yCoordinates = new int[vertexes];
@@ -117,8 +117,15 @@ void CHexagon::Load(ifstream& Infile) {
 
     //and the fill color
     Infile >> hexagonData;
-    FigGfxInfo.FillClr = ColorObject(hexagonData);
-    FigGfxInfo.isFilled = true;
+    if (hexagonData == "NO_FILL") {
+        FigGfxInfo.isFilled = false;
+        FigGfxInfo.FillClr = this->ColorObject(hexagonData);
+    }
+    else
+    {
+        FigGfxInfo.FillClr = this->ColorObject(hexagonData);
+        FigGfxInfo.isFilled = true;
+    }
 
     //show figure
     this->show();

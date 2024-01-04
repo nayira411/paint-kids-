@@ -158,7 +158,7 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			break;
 
 		case EXIT:
-			newAct = new ActionExit(this);
+			ExitMessage();
 			break;
 		
 		case STATUS:	//a click on the status bar ==> no action
@@ -466,24 +466,15 @@ int ApplicationManager::countByColor(string color) {
 
 string ApplicationManager::getColorName(color c)
 {
-	if ((c.ucBlue == BLACK.ucBlue) && (c.ucGreen == BLACK.ucGreen) && (c.ucRed == BLACK.ucRed))
-		return "BLACK";
+	
 	if ((c.ucBlue == PINK.ucBlue) && (c.ucGreen == PINK.ucGreen) && (c.ucRed == PINK.ucRed))
 		return "PINK";
-	if ((c.ucBlue == LIGHTBLUE.ucBlue) && (c.ucGreen == LIGHTBLUE.ucGreen) && (c.ucRed == LIGHTBLUE.ucRed))
-		return "LIGHTBLUE";
-	if ((c.ucBlue == MAROON.ucBlue) && (c.ucGreen == MAROON.ucGreen) && (c.ucRed == MAROON.ucRed))
-		return "MAROON";
 	if ((c.ucBlue == ORANGE.ucBlue) && (c.ucGreen == ORANGE.ucGreen) && (c.ucRed == ORANGE.ucRed))
 		return "ORANGE";
 	if ((c.ucBlue == BLUE.ucBlue) && (c.ucGreen == BLUE.ucGreen) && (c.ucRed == BLUE.ucRed))
 		return "BLUE";
-	if ((c.ucBlue == WHITE.ucBlue) && (c.ucGreen == WHITE.ucGreen) && (c.ucRed == WHITE.ucRed))
-		return "WHITE";
 	if ((c.ucBlue == RED.ucBlue) && (c.ucGreen == RED.ucGreen) && (c.ucRed == RED.ucRed))
 		return "RED";
-	if ((c.ucBlue == YELLOW.ucBlue) && (c.ucGreen == YELLOW.ucGreen) && (c.ucRed == YELLOW.ucRed))
-		return "YELLOW";
 	if ((c.ucBlue == GREEN.ucBlue) && (c.ucGreen == GREEN.ucGreen) && (c.ucRed == GREEN.ucRed))
 		return "GREEN";
 	return "NO-FILL";
@@ -502,4 +493,30 @@ int ApplicationManager::countByTypeAndColor(string type, string color) {
 		if (FigList[i]->getShapeType() == type && getColorName(FigList[i]->getFillColor()) == color)
 			count++;
 	return count;
+}
+
+int ApplicationManager::ExitMessage()
+{
+	int msgboxID = MessageBox(
+		NULL,
+		"Do You want to leave befor saving your file?\n Click ok to Leave\nClick cancel to Save",
+		"Exit",
+		MB_OKCANCEL | MB_ICONWARNING
+	);
+
+	switch (msgboxID)
+	{
+	case IDCANCEL:
+	{
+
+		Action* newAct = new ActionSave(this, FigCount);
+		ExecuteAction(newAct);
+	}
+	break;
+	case IDOK:
+		exit(0);
+		break;
+	}
+
+	return msgboxID;
 }
