@@ -16,8 +16,8 @@ GUI::GUI()
 	UI.ToolBarHeight = 50;
 	UI.MenuItemWidth = 60;
 	
-	UI.DrawColor = BLUE;	//Drawing color
-	UI.FillColor = ORANGE;	//Filling color
+	UI.DrawColor = ORANGE;	//Drawing color
+	UI.FillColor = WHITE;	//Filling color
 	UI.MsgColor = RED;		//Messages color
 	UI.BkGrndColor = WHITE;	//Background color
 	UI.HighlightColor = MAGENTA;	//This color should NOT be used to draw figures. use if for highlight only
@@ -57,8 +57,7 @@ string GUI::GetSrting() const
 			return "";	//returns nothing as user has cancelled label
 		if(Key == 13 )	//ENTER key is pressed
 			return Label;
-		if(Key == 8 )	//BackSpace is pressed
-			Label.resize(Label.size() -1 );			
+		if (Key == 8);	//BackSpace is pressed			Label.resize(Label.size() -1 );			
 		else
 			Label+= Key;
 		PrintMessage(Label);
@@ -404,7 +403,9 @@ color GUI::getCrntDrawColor() const	//get current drwawing color
 //////////////////////////////////////////////////////////////////////////////////////////
 
 color GUI::getCrntFillColor() const	//get current filling color
-{	return UI.FillColor;	}
+{
+	return UI.FillColor;
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 
 color GUI::getCrntBGColor() const	//get current filling color

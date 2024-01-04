@@ -69,8 +69,13 @@ void CEllipse::Load(ifstream& Infile) {
 
     //and the fill color
     Infile >> ellipseData;
-    FigGfxInfo.FillClr = this->ColorObject(ellipseData);
-    FigGfxInfo.isFilled = true;
+    if (ellipseData == "NO_FILL")
+        FigGfxInfo.isFilled = false;
+    else
+    {
+        FigGfxInfo.FillClr = this->ColorObject(ellipseData);
+        FigGfxInfo.isFilled = true;
+    }
 
     //show figure
     this->show();

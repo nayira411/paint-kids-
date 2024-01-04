@@ -6,6 +6,11 @@
 //Add ActionChngBGClr Action class
 class ActionChngBGClr : public Action
 {
+protected:
+	ActionType inputColorAction;
+	color BkGrndClr;
+
+	bool IsColor;
 public:
 	class ActionChngBGClr(ApplicationManager* pApp);
 

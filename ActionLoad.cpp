@@ -28,6 +28,7 @@ void ActionLoad::Execute()
 	GUI* pGUI = pManager->GetGUI();
 
 	// Ask the user for the file name
+	pGUI->ClearStatusBar();
 	pGUI->PrintMessage("please write the file name -->");
 	FileName = pGUI->GetSrting();
 

@@ -81,7 +81,7 @@ public:
 
 	void ApplicationManager::clearInterface();
 
-
+	int ApplicationManager::ExitMessage();
 
 
 };

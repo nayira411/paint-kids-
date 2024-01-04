@@ -37,6 +37,5 @@ void ActionSelect::Execute()
 			pGUI->ClearStatusBar();
 		}
 	}
-	/*color BGColors[] = {GREY, WHITE, LIGHTYELLOW}; */
-	//Get a Pointer to the Interface
+	
 }

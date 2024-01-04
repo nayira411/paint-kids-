@@ -4,7 +4,7 @@ CFigure::CFigure(GfxInfo FigureGfxInfo)
 { 
 	FigGfxInfo = FigureGfxInfo;	//Default status is non-filled.
 	Selected = false;
-	FigGfxInfo.isFilled = true;
+	FigGfxInfo.isFilled = false;
 	PlayHidden = false;
 }
 
