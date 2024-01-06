@@ -9,6 +9,8 @@ CFigure::CFigure(GfxInfo FigureGfxInfo)
 }
 
 CFigure::CFigure() {
+	Selected = false;
+	FigGfxInfo.isFilled = false;
 	PlayHidden = false;
 }
 

@@ -32,7 +32,7 @@ bool CSquare::IsPointInside(int x, int y)
 //omar return the details
 string CSquare::GetInfo()
 {
-	return "ID: " + to_string(this->ID) + " First point: (" + to_string(TopLeftCorner.x) + ", " + to_string(TopLeftCorner.y) + ")" + " - side length is: " + to_string(length) + " - Area: " + to_string(CalcArea());
+	return "First point: (" + to_string(TopLeftCorner.x) + ", " + to_string(TopLeftCorner.y) + ")" + " - side length is: " + to_string(length) + " - Area: " + to_string(CalcArea());
 }
 
 float CSquare::CalcArea()
