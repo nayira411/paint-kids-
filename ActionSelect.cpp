@@ -26,7 +26,7 @@ void ActionSelect::Execute()
 			figSelected->ChngFillClr(pGUI->getCrntHighlightColor());
 			pManager->UpdateInterface();
 			pGUI->ClearStatusBar();
-			pGUI->PrintMessage("ID: " + to_string(index + 1) + " - " + figSelected->GetInfo());
+			pGUI->PrintMessage(figSelected->GetInfo());
 		}
 		else
 		{

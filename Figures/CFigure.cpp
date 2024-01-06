@@ -10,7 +10,6 @@ CFigure::CFigure(GfxInfo FigureGfxInfo)
 
 CFigure::CFigure() {
 	PlayHidden = false;
-
 }
 
 void CFigure::SetSelected(bool s)
