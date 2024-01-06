@@ -32,7 +32,7 @@ bool CEllipse::IsPointInside(int x, int y)
 
 string CEllipse::GetInfo()
 {
-    return "First point: (" + to_string(pointone.x) + ", " + to_string(pointone.y) + ")" + 
+    return "First point : (" + to_string(pointone.x) + ", " + to_string(pointone.y) + ")" + 
         " - Second point: (" + to_string(pointtwo.x) + ", " + to_string(pointtwo.y) + ")"
         + " - Area: " + to_string(CalcArea());
 }
