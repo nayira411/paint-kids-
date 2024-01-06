@@ -54,7 +54,7 @@ bool CHexagon::IsPointInside(int x, int y)
 
 string CHexagon::GetInfo()
 {
-    return "First point: (" + to_string(xCoordinates[0]) + ", " + to_string(yCoordinates[0]) + ")" +
+    return  "First point : (" + to_string(xCoordinates[0]) + ", " + to_string(yCoordinates[0]) + ")" +
         " - Second point: (" + to_string(xCoordinates[1]) + ", " + to_string(yCoordinates[1]) + ")"
         + " - vertexes count is: " + to_string(vertexes)
         + " - Area is : " + to_string(CalcArea());
