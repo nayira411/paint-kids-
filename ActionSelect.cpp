@@ -22,8 +22,14 @@ void ActionSelect::Execute()
 		{
 			
 			figSelected->SetSelected(true);
+			figSelected->setOldDrawClr(figSelected->getDrawColor());
+			if (figSelected->IsShapeFilled()) {
+				figSelected->setOldFillClr(figSelected->getFillColor());
+			}
 			figSelected->ChngDrawClr(pGUI->getCrntHighlightColor());
+			bool FillStatusBeforeHighlighted = figSelected->IsShapeFilled();
 			figSelected->ChngFillClr(pGUI->getCrntHighlightColor());
+			figSelected->setFilling(FillStatusBeforeHighlighted);
 			pManager->UpdateInterface();
 			pGUI->ClearStatusBar();
 			pGUI->PrintMessage(figSelected->GetInfo());
@@ -31,8 +37,10 @@ void ActionSelect::Execute()
 		else
 		{
 			figSelected->SetSelected(false);
-			figSelected->ChngDrawClr(pGUI->getCrntDrawColor());
-			figSelected->ChngFillClr(pGUI->getCrntFillColor());
+			figSelected->ChngDrawClr(figSelected->getOldDrawColor());
+			if (figSelected->IsShapeFilled()) {
+				figSelected->ChngFillClr(figSelected->getOldFillColor());
+			}
 			pManager->UpdateInterface();
 			pGUI->ClearStatusBar();
 		}

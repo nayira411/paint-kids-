@@ -20,6 +20,11 @@ void CFigure::SetSelected(bool s)
 bool CFigure::IsSelected() const
 {	return Selected; }
 
+bool CFigure::IsShapeFilled() const
+{
+	return FigGfxInfo.isFilled;
+}
+
 void CFigure::ChngDrawClr(color Dclr)
 {	FigGfxInfo.DrawClr = Dclr; }
 
@@ -28,6 +33,11 @@ void CFigure::ChngFillClr(color Fclr)
 {	
 	FigGfxInfo.isFilled = true;
 	FigGfxInfo.FillClr = Fclr; 
+}
+
+void CFigure::setFilling(bool filled)
+{
+	FigGfxInfo.isFilled = filled;
 }
 
 //asmaa
@@ -85,6 +95,31 @@ void CFigure::ShowW()
 color CFigure::getFillColor()
 {
 	return FigGfxInfo.isFilled ? FigGfxInfo.FillClr : NULL;
+}
+
+color CFigure::getDrawColor()
+{
+	return FigGfxInfo.DrawClr;
+}
+
+void CFigure::setOldFillClr(color clr)
+{
+	oldFillClr = clr;
+}
+
+void CFigure::setOldDrawClr(color clr)
+{
+	oldDrawClr = clr;
+}
+
+color CFigure::getOldDrawColor()
+{
+	return oldDrawClr;
+}
+
+color CFigure::getOldFillColor()
+{
+	return oldFillClr;
 }
 
 bool CFigure::HiddenStatus() {

@@ -11,6 +11,9 @@ protected:
 	bool Selected;	//true if the figure is selected.
 	GfxInfo FigGfxInfo;	//Figure graphis info
 	bool PlayHidden;
+	color oldFillClr;
+	color oldDrawClr;
+	bool IsFilled;
 	/// Add more parameters if needed.
 
 public:
@@ -18,11 +21,15 @@ public:
 	CFigure();
 	void SetSelected(bool );	//select/unselect the figure
 	bool IsSelected() const;	//check whether fig is selected
+	bool IsShapeFilled() const;
 
 	virtual void DrawMe(GUI*) const  = 0 ;		//Draw the figure
 	
 	void ChngDrawClr(color Dclr);	//changes the figure's drawing color
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
+	void setOldFillClr(color clr);
+	void setOldDrawClr(color clr);
+	void setFilling(bool filled);
 
 	//Omar
 	virtual bool IsPointInside(int x, int y)=0;
@@ -40,7 +47,10 @@ public:
 	//nyra
 	virtual void Resize(GUI* pGUI, float size) = 0;
 	virtual string getShapeType() = 0;  // to get type of the shape
-	color CFigure::getFillColor();
+	color getDrawColor();
+	color getFillColor();
+	color getOldFillColor();
+	color getOldDrawColor();
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure
 
