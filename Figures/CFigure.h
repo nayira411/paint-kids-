@@ -8,7 +8,6 @@
 class CFigure
 {
 protected:
-	int ID;		//Each figure has an ID
 	bool Selected;	//true if the figure is selected.
 	GfxInfo FigGfxInfo;	//Figure graphis info
 	bool PlayHidden;
